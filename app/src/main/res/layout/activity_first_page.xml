@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.183"
-        app:srcCompat="@drawable/luxrycar" />
+        app:srcCompat="@drawable/logorentacar" />
 
     <Button
         android:id="@+id/signup"
