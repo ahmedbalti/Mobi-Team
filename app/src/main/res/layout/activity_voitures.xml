@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="161dp"
+        android:layout_height="164dp"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -24,8 +24,8 @@
 
         <TextView
             android:id="@+id/categorie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="144dp"
+            android:layout_height="57dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
@@ -129,8 +129,8 @@
 
                     <ImageView
                         android:id="@+id/voit3"
-                        android:layout_width="130dp"
-                        android:layout_height="100dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="124dp"
                         android:layout_gravity="center"
                         app:srcCompat="@drawable/fiesta" />
 
@@ -162,8 +162,8 @@
 
                     <ImageView
                         android:id="@+id/voit4"
-                        android:layout_width="130dp"
-                        android:layout_height="100dp"
+                        android:layout_width="137dp"
+                        android:layout_height="122dp"
                         android:layout_gravity="center"
                         app:srcCompat="@drawable/picanto" />
 
