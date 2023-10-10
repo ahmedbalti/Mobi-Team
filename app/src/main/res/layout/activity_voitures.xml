@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:orientation="vertical"
+    tools:context=".Categorie">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="167dp"
+            android:layout_height="98dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logo_voiture" />
+
+        <TextView
+            android:id="@+id/categorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="Categorie"
+            android:textColor="#671A1A"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+        android:fillViewport="true">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            app:columnCount="2"
+            app:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/voit1"
+                        android:layout_width="130dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/clio" />
+
+                    <TextView
+                        android:id="@+id/marq1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Clio"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/voit2"
+                        android:layout_width="130dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/dacia" />
+
+                    <TextView
+                        android:id="@+id/marq2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Logan"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/voit3"
+                        android:layout_width="130dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/fiesta" />
+
+                    <TextView
+                        android:id="@+id/marq3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Ford Fiesta"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/voit4"
+                        android:layout_width="130dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/picanto" />
+
+                    <TextView
+                        android:id="@+id/marq4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Kia Picanto"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card5"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/voit5"
+                        android:layout_width="130dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/swift" />
+
+                    <TextView
+                        android:id="@+id/marq5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Suzuki Swift"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card6"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/voit6"
+                        android:layout_width="130dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/focus" />
+
+                    <TextView
+                        android:id="@+id/marq6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Ford Focus"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.gridlayout.widget.GridLayout>
+    </ScrollView>
+</LinearLayout>
