@@ -13,6 +13,33 @@
         android:theme="@style/Theme.RentACar"
         tools:targetApi="31">
         <activity
+            android:name=".MultiStepCheckoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FactureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentFailedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentMethodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckoutInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InvoiceTransactionHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentDetailPayPalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentDetailVisaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
