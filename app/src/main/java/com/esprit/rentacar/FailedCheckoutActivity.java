@@ -7,21 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class FailedCheckoutActivity extends AppCompatActivity {
 
-    Button v ;
+    Button back_btn ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        v = findViewById(R.id.b) ;
+        setContentView(R.layout.activity_failed_checkout);
 
-        v.setOnClickListener(new View.OnClickListener() {
+        back_btn = findViewById(R.id.back_btn) ;
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent creditCardIntent = new Intent(MainActivity.this, CheckoutInfoActivity.class);
-                startActivity(creditCardIntent);
+                finish();
             }
         });
+
+    }
+
+    public void onBackIconClick(View view) {
+        finish();
     }
 }

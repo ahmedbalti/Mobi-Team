@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="selected_button_color">#2196F3</color>
+    <color name="tab_unselected_color">#808080</color>
+    <color name="checkout_valid">#33BC39</color>
+    <color name="checkout_init">#377DDE</color>
+    <color name="inactive_tab_color">#9FA1A5</color>
+    <color name="payment_succ">#787B81</color>
+    <color name="payment_failed">#BC2020</color>
+    <color name="completed_color">#4CAF50</color>
+    <color name="current_color">#E2A3A8A3</color>
+    <color name="incomplete_color">#C82216</color>
+    <color name="btn">#26378C</color>
+    <color name="btn_hover">#334497</color>
 </resources>

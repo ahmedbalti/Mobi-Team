@@ -7,19 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class BillingActivity extends AppCompatActivity {
 
-    Button v ;
+
+    Button close_btn ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        v = findViewById(R.id.b) ;
+        setContentView(R.layout.activity_billing);
 
-        v.setOnClickListener(new View.OnClickListener() {
+
+        close_btn = findViewById(R.id.close_btn) ;
+
+        close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent creditCardIntent = new Intent(MainActivity.this, CheckoutInfoActivity.class);
+                Intent creditCardIntent = new Intent(BillingActivity.this, MainActivity.class);
                 startActivity(creditCardIntent);
             }
         });

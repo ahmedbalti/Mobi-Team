@@ -1,0 +1,12 @@
+<!-- res/drawable/divider_gradient.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#DDDDDD"
+    android:centerColor="#DDDDDD"
+    android:endColor="#DDDDDD"
+    android:angle="0" />
+</shape>
+    <!-- Start color -->
+    <!-- Center color (same as start) -->
+    <!-- End color -->
+    <!-- Gradient angle (0 degrees for horizontal) -->
