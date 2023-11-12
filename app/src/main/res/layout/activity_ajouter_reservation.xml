@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_ajouter_reservation.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".ReservationActivity">
+
+    <EditText
+        android:id="@+id/editTextDatePrise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date de prise" />
+
+    <EditText
+        android:id="@+id/editTextDateRemise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDatePrise"
+        android:layout_marginTop="16dp"
+        android:hint="Date de remise" />
+
+    <EditText
+        android:id="@+id/editTextLieuPrise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDateRemise"
+        android:layout_marginTop="16dp"
+        android:hint="Lieu de prise" />
+
+    <EditText
+        android:id="@+id/editTextLieuRemise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextLieuPrise"
+        android:layout_marginTop="16dp"
+        android:hint="Lieu de remise" />
+
+    <Button
+        android:id="@+id/buttonAjouterReservation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextLieuRemise"
+        android:layout_marginTop="16dp"
+        android:text="Ajouter la réservation" />
+
+</RelativeLayout>

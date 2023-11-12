@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/back"
+    tools:context=".ReservationActivity"
+    >
+
+
+
+  <TextView
+      android:id="@+id/textView18"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:layout_margin="5dp"
+      android:textSize="35dp"
+      android:fontFamily="cursive"
+      android:textStyle="bold"
+      android:textColor="#390FC5"
+      android:text="Reservation"
+
+      />
+
+
+
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="169dp"
+      android:layout_height="22dp"
+      android:text="Date Prise"
+      android:gravity="center"
+      android:textSize="20dp"
+
+
+      />
+
+
+
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="180dp"
+        android:layout_height="233dp"
+        android:gravity="center"
+
+        />
+
+
+    <TextView
+      android:id="@+id/textView2"
+      android:layout_width="152dp"
+      android:layout_height="23dp"
+      android:text="Date Remise"
+        android:gravity="center"
+        android:textSize="20dp"
+
+
+        />
+
+  <CalendarView
+      android:id="@+id/calendarView2"
+      android:layout_width="173dp"
+      android:layout_height="292dp"
+      android:gravity="center"
+
+      />
+
+
+  <Button
+      android:id="@+id/button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:text="choisir Lieu" />
+</LinearLayout>

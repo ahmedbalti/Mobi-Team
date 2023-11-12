@@ -1,0 +1,39 @@
+<!-- res/layout/activity_reservation.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ReservationActivity">
+
+    <EditText
+        android:id="@+id/editTextDatePrise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date de prise"/>
+
+    <EditText
+        android:id="@+id/editTextDateRemise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date de remise"/>
+
+    <EditText
+        android:id="@+id/editTextLieuPrise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lieu de prise"/>
+
+    <EditText
+        android:id="@+id/editTextLieuRemise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lieu de remise"/>
+
+    <Button
+        android:id="@+id/btnAddReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter Réservation"/>
+</LinearLayout>
