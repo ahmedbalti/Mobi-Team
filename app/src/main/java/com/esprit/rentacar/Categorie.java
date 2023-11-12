@@ -34,7 +34,6 @@ public class Categorie extends AppCompatActivity {
             }
         });
 
-
         AjouterVoiture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

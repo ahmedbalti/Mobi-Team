@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!-- Ajoutez des TextView pour afficher le modèle et le nom de la voiture -->
+    <TextView
+        android:id="@+id/textViewModelNom"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Modèle: Nom:"/>
+
+    <!-- Ajoutez des boutons "Modifier" et "Supprimer" -->
+    <Button
+        android:id="@+id/buttonModifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifier" />
+
+    <Button
+        android:id="@+id/buttonSupprimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Supprimer" />
+
+</LinearLayout>

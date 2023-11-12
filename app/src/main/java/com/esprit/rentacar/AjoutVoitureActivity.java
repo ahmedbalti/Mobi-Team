@@ -2,7 +2,8 @@ package com.esprit.rentacar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.AsyncTask;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -56,6 +57,9 @@ public class AjoutVoitureActivity extends AppCompatActivity {
             editTextModele.setText("");
 
             Toast.makeText(this, "Voiture ajoutée avec succès", Toast.LENGTH_SHORT).show();
+            // Rediriger vers ListeReservationsActivity
+            startActivity(new Intent(AjoutVoitureActivity.this, ListeVoituresActivity.class));
+            finish(); // Optionnel: fermer l'activité actuelle si nécessaire
         } else {
             Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
         }

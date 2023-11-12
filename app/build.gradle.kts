@@ -43,6 +43,8 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.4.0")
     annotationProcessor ("androidx.room:room-compiler:2.4.0")
     implementation ("androidx.sqlite:sqlite:2.1.0")
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+
 
 
 }

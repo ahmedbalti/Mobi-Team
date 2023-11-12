@@ -1,6 +1,6 @@
 package com.esprit.rentacar.Model;
 
-// Dans le package model ou entity
+
 
 public class Voiture {
 
