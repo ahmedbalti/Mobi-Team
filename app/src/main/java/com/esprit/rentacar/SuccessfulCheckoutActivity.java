@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class SuccessfulCheckoutActivity extends AppCompatActivity {
 
-    Button bill_button, close_btn ;
+    Button bill_button, close_btn,history_btn ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,7 @@ public class SuccessfulCheckoutActivity extends AppCompatActivity {
 
         bill_button = findViewById(R.id.bill_button);
         close_btn = findViewById(R.id.close_btn);
+
         bill_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,6 +33,7 @@ public class SuccessfulCheckoutActivity extends AppCompatActivity {
                 startActivity(creditCardIntent);
             }
         });
+
 
     }
 
