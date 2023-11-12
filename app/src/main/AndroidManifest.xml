@@ -15,9 +15,14 @@
         android:theme="@style/Theme.RentACar"
         tools:targetApi="31">
         <activity
+            android:name=".ModifierReservationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListeReservationsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AjouterReservation"
             android:exported="false" />
-
         <activity
             android:name=".ReservationActivity3"
             android:exported="false" />

@@ -2,6 +2,7 @@ package com.esprit.rentacar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ public class AjouterReservation extends AppCompatActivity {
 
     private DatabaseHelper databaseHelper;
     private EditText datePriseEditText, dateRemiseEditText, lieuPriseEditText, lieuRemiseEditText;
-    private Button ajouterReservationButton;
+    private Button ajouterReservationButton, afficherReservationsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class AjouterReservation extends AppCompatActivity {
         lieuRemiseEditText = findViewById(R.id.editTextLieuRemise);
         ajouterReservationButton = findViewById(R.id.buttonAjouterReservation);
 
+
+
         // Ajouter un écouteur de clic au bouton
         ajouterReservationButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +42,7 @@ public class AjouterReservation extends AppCompatActivity {
                 ajouterReservation();
             }
         });
+
     }
 
     private void ajouterReservation() {
@@ -62,6 +66,10 @@ public class AjouterReservation extends AppCompatActivity {
         // Vérifier si l'ajout a réussi
         if (reservationId != -1) {
             Toast.makeText(this, "Réservation ajoutée avec succès, ID: " + reservationId, Toast.LENGTH_SHORT).show();
+
+            // Rediriger vers ListeReservationsActivity
+            startActivity(new Intent(AjouterReservation.this, ListeReservationsActivity.class));
+            finish(); // Optionnel: fermer l'activité actuelle si nécessaire
         } else {
             Toast.makeText(this, "Erreur lors de l'ajout de la réservation", Toast.LENGTH_SHORT).show();
         }

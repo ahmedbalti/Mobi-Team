@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/layout/activity_ajouter_reservation.xml -->
+<!-- res/layout/activity_modifier_reservation.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".ReservationActivity">
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/editTextDatePrise"
@@ -41,18 +36,11 @@
         android:hint="Lieu de remise" />
 
     <Button
-        android:id="@+id/buttonAjouterReservation"
+        android:id="@+id/buttonModifierReservation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextLieuRemise"
         android:layout_marginTop="16dp"
-        android:text="Ajouter la réservation" />
+        android:text="Modifier la réservation" />
 
-    <Button
-        android:id="@+id/buttonAfficherReservations"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonAjouterReservation"
-        android:layout_marginTop="16dp"
-        android:text="Afficher Réservations" />
 </RelativeLayout>

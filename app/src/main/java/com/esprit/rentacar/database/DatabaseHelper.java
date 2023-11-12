@@ -2,10 +2,14 @@ package com.esprit.rentacar.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.esprit.rentacar.model.Reservation;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -54,4 +58,82 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return id;
     }
+
+    public List<Reservation> getAllReservations() {
+        List<Reservation> reservations = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_RESERVATION;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Reservation reservation = new Reservation();
+                reservation.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+                reservation.setDatePrise(cursor.getString(cursor.getColumnIndex(COLUMN_DATE_PRISE)));
+                reservation.setDateRemise(cursor.getString(cursor.getColumnIndex(COLUMN_DATE_REMISE)));
+                reservation.setLieuPrise(cursor.getString(cursor.getColumnIndex(COLUMN_LIEU_PRISE)));
+                reservation.setLieuRemise(cursor.getString(cursor.getColumnIndex(COLUMN_LIEU_REMISE)));
+
+                reservations.add(reservation);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return reservations;
+    }
+
+    public Reservation getReservation(long reservationId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                TABLE_RESERVATION,
+                new String[]{COLUMN_ID, COLUMN_DATE_PRISE, COLUMN_DATE_REMISE, COLUMN_LIEU_PRISE, COLUMN_LIEU_REMISE},
+                COLUMN_ID + "=?",
+                new String[]{String.valueOf(reservationId)},
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Reservation reservation = new Reservation();
+        if (cursor != null) {
+            reservation.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+            reservation.setDatePrise(cursor.getString(cursor.getColumnIndex(COLUMN_DATE_PRISE)));
+            reservation.setDateRemise(cursor.getString(cursor.getColumnIndex(COLUMN_DATE_REMISE)));
+            reservation.setLieuPrise(cursor.getString(cursor.getColumnIndex(COLUMN_LIEU_PRISE)));
+            reservation.setLieuRemise(cursor.getString(cursor.getColumnIndex(COLUMN_LIEU_REMISE)));
+
+            cursor.close();
+        }
+
+        return reservation;
+    }
+
+    // Méthode pour mettre à jour une réservation dans la base de données
+    public boolean updateReservation(Reservation reservation) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_DATE_PRISE, reservation.getDatePrise());
+        values.put(COLUMN_DATE_REMISE, reservation.getDateRemise());
+        values.put(COLUMN_LIEU_PRISE, reservation.getLieuPrise());
+        values.put(COLUMN_LIEU_REMISE, reservation.getLieuRemise());
+
+        // Mettez à jour la réservation
+        int rowsAffected = db.update(TABLE_RESERVATION, values, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(reservation.getId())});
+
+        return rowsAffected > 0;
+    }
+    public void supprimerReservation(long reservationId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_RESERVATION, COLUMN_ID + " = ?", new String[]{String.valueOf(reservationId)});
+        db.close();
+    }
+
 }
