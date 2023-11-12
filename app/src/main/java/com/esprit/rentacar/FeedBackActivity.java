@@ -1,20 +1,23 @@
 package com.esprit.rentacar;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class FeedBack extends AppCompatActivity {
-TextView tvFeedback;
-RatingBar rbStars;
+public class FeedBackActivity extends AppCompatActivity {
+
+    TextView tvFeedback;
+    RatingBar rbStars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_back);
+        setContentView(R.layout.activity_feed_back2);
         tvFeedback = findViewById(R.id.tvFeedback);
         rbStars = findViewById(R.id.rbStars);
+        //getSupportActionBar().setTitle("FeddBack");
         rbStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
