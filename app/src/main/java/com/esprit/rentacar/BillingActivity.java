@@ -36,4 +36,9 @@ public class BillingActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onBackIconClick(View view) {
+        finish();
+    }
+
 }

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.esprit.rentacar.database.AppDataBase;
 import com.esprit.rentacar.entity.PaymentDetails;
@@ -38,4 +39,9 @@ public class TransactionHistoryActivity extends AppCompatActivity {
         List<PaymentDetails> userTransactions = appDatabase.paymentDao().getUserTransactions(1);
         transactionAdapter.setTransactions(userTransactions);
     }
+
+    public void onBackIconClick(View view) {
+        finish();
+    }
+
 }
