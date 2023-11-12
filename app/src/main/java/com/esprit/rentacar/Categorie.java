@@ -3,9 +3,11 @@ package com.esprit.rentacar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class Categorie extends AppCompatActivity {
 
@@ -13,6 +15,8 @@ public class Categorie extends AppCompatActivity {
 
     int i;
     CardView voiture,minbus,catcat,lux;
+    Button AjouterVoiture;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +27,21 @@ public class Categorie extends AppCompatActivity {
         catcat=findViewById(R.id.catcat);
         lux=findViewById(R.id.luxury);
 
-
+        AjouterVoiture = findViewById(R.id.home);
         voiture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { afficher(0);
             }
         });
 
+
+        AjouterVoiture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Categorie.this, AjoutVoitureActivity.class);
+                startActivity(intent);
+            }
+        });
         minbus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,4 +73,6 @@ public class Categorie extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
 }

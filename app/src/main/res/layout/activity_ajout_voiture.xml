@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AjoutVoitureActivity">
+
+    <!-- Ajoutez des champs pour les détails de la voiture (nom, modèle, etc.) -->
+    <EditText
+        android:id="@+id/editTextNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom de la voiture"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextModele"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Modèle de la voiture"
+        android:inputType="text" />
+
+    <!-- Ajoutez d'autres champs pour d'autres détails de la voiture si nécessaire -->
+
+    <!-- Ajoutez un bouton pour enregistrer la voiture -->
+    <Button
+        android:id="@+id/buttonEnregistrer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enregistrer la voiture" />
+
+</LinearLayout>

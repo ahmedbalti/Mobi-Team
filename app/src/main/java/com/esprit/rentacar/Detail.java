@@ -36,7 +36,7 @@ public class Detail extends AppCompatActivity {
 
         image.setImageResource(img);
 
-// bouton reservation
+// Bouton pour la Réservation
         reserver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
