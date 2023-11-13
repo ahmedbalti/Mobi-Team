@@ -1,6 +1,7 @@
 package com.esprit.rentacar.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -26,5 +27,16 @@ public interface PaymentDao {
 
     @Query("SELECT * FROM payment_details WHERE userId = :userId")
     List<PaymentDetails> getUserTransactions(int userId);
+
+    @Query("SELECT * FROM payment_details ORDER BY id DESC LIMIT 1")
+    PaymentDetails getLatestPaymentDetails();
+
+    @Delete
+    void deleteTransaction(PaymentDetails transaction);
+
+
+
+
+
 
 }

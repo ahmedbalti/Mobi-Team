@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="15dp">
 
     <LinearLayout
@@ -9,13 +9,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
         <ImageView
             android:id="@+id/iv_transaction_icon"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/item_card_foreground"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="5dp"
             android:layout_gravity="center"
             android:contentDescription="Transaction Type Icon"/>
 
@@ -25,7 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/iv_transaction_icon"
             android:orientation="horizontal"
-
             android:layout_gravity="center">
 
             <LinearLayout
@@ -42,25 +40,21 @@
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
                     />
+
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1" />
+
                 <TextView
                     android:id="@+id/tv_transaction_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Date: 2023-10-05"
                     android:textSize="14sp"
-
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
-
-
-
-
-
 
             <Space
                 android:layout_width="0dp"
@@ -77,9 +71,18 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <!-- Ajoutez l'icône de croix à l'extrême droite -->
+            <ImageView
+                android:id="@+id/item_delete"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_close_24"
+                android:layout_marginStart="16dp"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:contentDescription="Close Icon"/>
+
         </LinearLayout>
-
-
     </LinearLayout>
 
 </RelativeLayout>

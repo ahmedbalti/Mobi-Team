@@ -52,9 +52,14 @@ public class PaymentMethodActivity extends AppCompatActivity {
                     Intent creditCardIntent = new Intent(PaymentMethodActivity.this, PaypalFormActivity.class);
                     startActivity(creditCardIntent);
                 } else if (currentlySelectedCheckbox[0] == in_site_checkbox) {
-                    savePaymentInfoToDatabase();
-                    Intent creditCardIntent = new Intent(PaymentMethodActivity.this, SuccessfulCheckoutActivity.class);
-                    startActivity(creditCardIntent);
+                    PaymentDetails savedPaymentDetails = savePaymentInfoToDatabase();
+                    Intent checkoutInfoIntent = new Intent(PaymentMethodActivity.this, SuccessfulCheckoutActivity.class);
+
+                    checkoutInfoIntent.putExtra("transactionId", savedPaymentDetails.getId());
+                    checkoutInfoIntent.putExtra("paymentMethod", savedPaymentDetails.getPaymentMethod());
+                    checkoutInfoIntent.putExtra("price", savedPaymentDetails.getPrice());
+
+                    startActivity(checkoutInfoIntent);
 
                 } else {
                     Toast.makeText(PaymentMethodActivity.this, "Please select a payment method", Toast.LENGTH_SHORT).show();
@@ -94,7 +99,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
         });
     }
 
-    private void savePaymentInfoToDatabase() {
+    private PaymentDetails  savePaymentInfoToDatabase() {
         AppDataBase appDatabase = AppDataBase.getAppDatabase(this);
         PaymentDetails paymentDetails = new PaymentDetails(
                 vehicleName,
@@ -107,6 +112,11 @@ public class PaymentMethodActivity extends AppCompatActivity {
                 1
         );
         appDatabase.paymentDao().insertPaymentDetails(paymentDetails);
+
+        // Récupération des derniers détails de paiement insérés
+        PaymentDetails savedPaymentDetails = appDatabase.paymentDao().getLatestPaymentDetails();
+
+        return savedPaymentDetails ;
     }
 
 

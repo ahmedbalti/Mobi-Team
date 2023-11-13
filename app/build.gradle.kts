@@ -9,10 +9,9 @@ android {
     defaultConfig {
         applicationId = "com.esprit.rentacar"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,7 +31,6 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -44,6 +42,9 @@ dependencies {
     annotationProcessor ("androidx.room:room-compiler:2.2.0")
     implementation ("com.loopj.android:android-async-http:1.4.11")
     implementation ("androidx.browser:browser:1.3.0")
+    implementation ("com.itextpdf:itextg:5.5.10")
+
+
 
 
 

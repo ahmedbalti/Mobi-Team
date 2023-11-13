@@ -1,18 +1,28 @@
 package com.esprit.rentacar;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CheckoutInfoActivity extends AppCompatActivity {
 
     Button proceed_button;
-
+    final int permission_request = 212;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +58,14 @@ public class CheckoutInfoActivity extends AppCompatActivity {
                 paymentMethodIntent.putExtra("date", getIntent().getStringExtra("date"));
                 paymentMethodIntent.putExtra("time", getIntent().getStringExtra("time"));
                 paymentMethodIntent.putExtra("price", getIntent().getDoubleExtra("price", 0.0));
-
-                // Démarrage de l'activité suivante avec l'intent
-                startActivity(paymentMethodIntent);
+                if (android.os.Build.VERSION.SDK_INT >= 23) {
+                    String permission = Manifest.permission.INTERNET;
+                    if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(CheckoutInfoActivity.this, new String[]{android.Manifest.permission.INTERNET}, permission_request);
+                    } else {
+                        startActivity(paymentMethodIntent);
+                    }
+                }
             }
         });
     }
@@ -86,4 +101,61 @@ public class CheckoutInfoActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case permission_request: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.e("DFFF","dd");
+
+                } else {
+                    boolean somePermissionsForeverDenied = false;
+                    for(String permission: permissions){
+                        if(ActivityCompat.shouldShowRequestPermissionRationale(this, permission)){
+                            //denied
+                            Log.e("denied", permission);
+                        }else{
+                            if(ActivityCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED){
+                                //allowed
+                                Log.e("allowed", permission);
+                            } else{
+                                //set to never ask again
+                                Log.e("set to never ask again", permission);
+                                somePermissionsForeverDenied = true;
+                            }
+                        }
+                    }
+                    if(somePermissionsForeverDenied){
+                        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                        alertDialogBuilder.setTitle("Permissions Required")
+                                .setMessage("You have forcefully denied some of the required permissions " +
+                                        "for this action. Please open settings, go to permissions and allow them.")
+                                .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                                Uri.fromParts("package", getPackageName(), null));
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                    }
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                })
+                                .setCancelable(false)
+                                .create()
+                                .show();
+                    }
+                    Toast.makeText(getApplication(), "Permission required", Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
+        }
+    }
+
+
 }
