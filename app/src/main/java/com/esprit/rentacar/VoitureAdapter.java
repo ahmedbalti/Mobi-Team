@@ -48,4 +48,6 @@ public class VoitureAdapter extends RecyclerView.Adapter<VoitureAdapter.ViewHold
             textViewModele = itemView.findViewById(R.id.textViewModele);
         }
     }
+
+
 }

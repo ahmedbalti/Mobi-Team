@@ -15,6 +15,9 @@
         android:theme="@style/Theme.RentACar"
         tools:targetApi="31">
         <activity
+            android:name=".AjouterVehiculeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ModifierVoitureActivity"
             android:exported="false" />
         <activity

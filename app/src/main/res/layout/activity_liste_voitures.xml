@@ -7,6 +7,14 @@
     android:padding="16dp"
     tools:context=".ListeVoituresActivity">
 
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Rechercher par nom de voiture"/>
+
+
     <!-- Ajoutez une ListView pour afficher la liste des voitures -->
     <ListView
         android:id="@+id/listViewVoitures"

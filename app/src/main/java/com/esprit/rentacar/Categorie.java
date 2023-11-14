@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Categorie extends AppCompatActivity {
 
@@ -15,7 +16,7 @@ public class Categorie extends AppCompatActivity {
 
     int i;
     CardView voiture,minbus,catcat,lux;
-    Button AjouterVoiture;
+    Button AjouterVoiture,  afficherVehiculesButton;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class Categorie extends AppCompatActivity {
         lux=findViewById(R.id.luxury);
 
         AjouterVoiture = findViewById(R.id.home);
+
         voiture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { afficher(0);
@@ -41,6 +43,24 @@ public class Categorie extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        afficherVehiculesButton = findViewById(R.id.buttonAfficherVehicules);
+
+        afficherVehiculesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    // Rediriger vers ListeVehiculesActivity
+                    startActivity(new Intent(Categorie.this, ListeVoituresActivity.class));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(Categorie.this, "Erreur lors du démarrage de l'activité", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
         minbus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +92,7 @@ public class Categorie extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
 
 }
