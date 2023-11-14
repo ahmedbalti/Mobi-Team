@@ -2,11 +2,14 @@ package com.esprit.rentacar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +26,8 @@ public class ListeReservationsActivity extends AppCompatActivity {
 
     private DatabaseHelper databaseHelper;
     private ListView listViewReservations;
+    private EditText editTextSearch;
+    private Button buttonSearch;
     private static final int REQUEST_CODE_MODIFIER_RESERVATION = 1;
 
     @Override
@@ -35,10 +40,36 @@ public class ListeReservationsActivity extends AppCompatActivity {
 
         // Initialisez la ListView
         listViewReservations = findViewById(R.id.listViewReservations);
-
+        editTextSearch = findViewById(R.id.editTextSearch);
+        buttonSearch = findViewById(R.id.buttonSearch);
         // Affichez la liste des réservations
-        afficherListeReservations();
+        afficherListeReservations("");
 
+        // Ajoutez un TextWatcher pour gérer les modifications dans le champ de recherche
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // Affichez la liste des réservations filtrée par le lieu de prise
+                afficherListeReservations(editable.toString());
+            }
+        });
+
+        // Ajoutez un écouteur de clic au bouton de recherche
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Affichez la liste des réservations filtrée par le lieu de prise
+                afficherListeReservations(editTextSearch.getText().toString());
+            }
+        });
         listViewReservations.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,9 +84,17 @@ public class ListeReservationsActivity extends AppCompatActivity {
         });
     }
 
-    private void afficherListeReservations() {
-        // Récupérez toutes les réservations de la base de données
-        List<Reservation> listeReservations = databaseHelper.getAllReservations();
+    private void afficherListeReservations(String lieuPriseFilter) {
+        // Récupérez les réservations de la base de données en fonction du lieu de prise
+        List<Reservation> listeReservations;
+
+        if (lieuPriseFilter.isEmpty()) {
+            // Si le champ de recherche est vide, affichez toutes les réservations
+            listeReservations = databaseHelper.getAllReservations();
+        } else {
+            // Sinon, filtrez les réservations par lieu de prise
+            listeReservations = databaseHelper.getReservationsByLieuPrise(lieuPriseFilter);
+        }
 
         // Utilisez un adaptateur personnalisé pour afficher la liste dans la ListView
         ArrayAdapter<Reservation> adapter = new ArrayAdapter<Reservation>(this, R.layout.list_item_reservation, R.id.textViewDetails, listeReservations) {
@@ -82,6 +121,7 @@ public class ListeReservationsActivity extends AppCompatActivity {
                     }
                 });
 
+                // Ajoutez un écouteur de clic au bouton "Supprimer"
                 Button buttonSupprimer = view.findViewById(R.id.buttonSupprimer);
                 buttonSupprimer.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -90,7 +130,7 @@ public class ListeReservationsActivity extends AppCompatActivity {
                         databaseHelper.supprimerReservation(reservation.getId());
 
                         // Rafraîchissez la liste après la suppression
-                        afficherListeReservations();
+                        afficherListeReservations(lieuPriseFilter);
                     }
                 });
 
@@ -102,13 +142,14 @@ public class ListeReservationsActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_MODIFIER_RESERVATION && resultCode == RESULT_OK) {
             // Si la modification a eu lieu, rafraîchissez la liste
-            afficherListeReservations();
+            afficherListeReservations("");
         }
     }
 

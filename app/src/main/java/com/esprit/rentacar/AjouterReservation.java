@@ -33,7 +33,20 @@ public class AjouterReservation extends AppCompatActivity {
         lieuRemiseEditText = findViewById(R.id.editTextLieuRemise);
         ajouterReservationButton = findViewById(R.id.buttonAjouterReservation);
 
+        afficherReservationsButton = findViewById(R.id.buttonAfficherReservations);
 
+        afficherReservationsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    // Rediriger vers ListeReservationsActivity
+                    startActivity(new Intent(AjouterReservation.this, ListeReservationsActivity.class));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(AjouterReservation.this, "Erreur lors du démarrage de l'activité", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         // Ajouter un écouteur de clic au bouton
         ajouterReservationButton.setOnClickListener(new View.OnClickListener() {

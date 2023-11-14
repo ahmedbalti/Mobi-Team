@@ -136,4 +136,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public List<Reservation> getReservationsByLieuPrise(String lieuPrise) {
+        List<Reservation> reservations = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + TABLE_RESERVATION +
+                " WHERE " + COLUMN_LIEU_PRISE + " LIKE '%" + lieuPrise + "%'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Reservation reservation = new Reservation();
+                reservation.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+                reservation.setDatePrise(cursor.getString(cursor.getColumnIndex(COLUMN_DATE_PRISE)));
+                reservation.setDateRemise(cursor.getString(cursor.getColumnIndex(COLUMN_DATE_REMISE)));
+                reservation.setLieuPrise(cursor.getString(cursor.getColumnIndex(COLUMN_LIEU_PRISE)));
+                reservation.setLieuRemise(cursor.getString(cursor.getColumnIndex(COLUMN_LIEU_REMISE)));
+
+                reservations.add(reservation);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return reservations;
+    }
+
+
 }
