@@ -34,6 +34,7 @@ public class CheckoutInfoActivity extends AppCompatActivity {
         if (intent != null) {
             String vehicleName = intent.getStringExtra("vehicleName");
             String vehicleMatt = intent.getStringExtra("vehicleMatt");
+            //String date = intent.getStringExtra("date");
             String date = intent.getStringExtra("date");
             String time = intent.getStringExtra("time");
             double price = intent.getDoubleExtra("price", 0.0);

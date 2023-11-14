@@ -43,9 +43,7 @@ dependencies {
     implementation ("com.loopj.android:android-async-http:1.4.11")
     implementation ("androidx.browser:browser:1.3.0")
     implementation ("com.itextpdf:itextg:5.5.10")
-
-
-
-
-
+    implementation ("com.sun.mail:android-mail:1.6.2")
+    implementation ("com.sun.mail:android-activation:1.6.2")
+    implementation ("com.stripe:stripe-android:16.0.0")
 }

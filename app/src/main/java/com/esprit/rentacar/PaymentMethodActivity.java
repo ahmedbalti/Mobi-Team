@@ -99,6 +99,18 @@ public class PaymentMethodActivity extends AppCompatActivity {
         });
     }
 
+    private void sendThankYouEmail(String recipientEmail, int transactionId, String transactionDate) {
+        String subject = "Thank You for Your Transaction";
+        String messageBody = "Dear user,\n\nThank you for your transaction .\n\n" +
+                "Your transaction with ID " + transactionId +
+                " was successfully completed on " + transactionDate +
+                ".\n\nBest regards,\nThe Rent-a-Car Team";
+
+
+        // Execute the email sending task in the background
+        new SendMailCheckout(recipientEmail, subject, messageBody).execute();
+    }
+
     private PaymentDetails  savePaymentInfoToDatabase() {
         AppDataBase appDatabase = AppDataBase.getAppDatabase(this);
         PaymentDetails paymentDetails = new PaymentDetails(
@@ -113,8 +125,9 @@ public class PaymentMethodActivity extends AppCompatActivity {
         );
         appDatabase.paymentDao().insertPaymentDetails(paymentDetails);
 
-        // Récupération des derniers détails de paiement insérés
         PaymentDetails savedPaymentDetails = appDatabase.paymentDao().getLatestPaymentDetails();
+
+        sendThankYouEmail("yousra.abid@esprit.tn", savedPaymentDetails.getId(), savedPaymentDetails.getDate());
 
         return savedPaymentDetails ;
     }

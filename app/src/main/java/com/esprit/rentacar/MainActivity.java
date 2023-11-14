@@ -11,6 +11,8 @@ import androidx.room.Room;
 
 import com.esprit.rentacar.database.AppDataBase;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -29,11 +31,18 @@ public class MainActivity extends AppCompatActivity {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Get the current system date
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+
                 Intent checkoutInfoIntent = new Intent(MainActivity.this, CheckoutInfoActivity.class);
 
                 checkoutInfoIntent.putExtra("vehicleName", "Toyota Camry");
                 checkoutInfoIntent.putExtra("vehicleMatt", "MT-586540");
-                checkoutInfoIntent.putExtra("date", "July 15, 2023");
+                checkoutInfoIntent.putExtra("date", day+"/"+month+1+"/"+year);
                 checkoutInfoIntent.putExtra("time", "10:00 AM - 4:00 PM");
                 checkoutInfoIntent.putExtra("price", 100.00);
 
