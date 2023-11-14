@@ -2,7 +2,6 @@ package com.esprit.rentacar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,28 +16,25 @@ import com.esprit.rentacar.entity.FeedBackModel;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 
-=======
 import android.os.Bundle;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
->>>>>>> 27ec3c4948ea7d7159c37a03a0003395b4416bac
 public class FeedBackActivity extends AppCompatActivity {
 
     TextView tvFeedback;
     RatingBar rbStars;
-<<<<<<< HEAD
+
     Button CancelBtn,btnSend ;
     EditText EditTextFeedBack ;
 
-=======
->>>>>>> 27ec3c4948ea7d7159c37a03a0003395b4416bac
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_back2);
-<<<<<<< HEAD
+
         CancelBtn = findViewById(R.id.Cancel) ;
         btnSend = findViewById(R.id.btnSend);
         tvFeedback = findViewById(R.id.tvFeedback);
@@ -46,11 +42,10 @@ public class FeedBackActivity extends AppCompatActivity {
         EditTextFeedBack = findViewById(R.id.EditTextFeedBack);
 
 
-=======
         tvFeedback = findViewById(R.id.tvFeedback);
         rbStars = findViewById(R.id.rbStars);
         //getSupportActionBar().setTitle("FeddBack");
->>>>>>> 27ec3c4948ea7d7159c37a03a0003395b4416bac
+
         rbStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -67,7 +62,7 @@ public class FeedBackActivity extends AppCompatActivity {
                 }
             }
         });
-<<<<<<< HEAD
+
         CancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,8 +94,4 @@ public class FeedBackActivity extends AppCompatActivity {
         appDatabase.feedBackDao().insertFeedBack(feedBackModel);
     }
 
-
-=======
     }
->>>>>>> 27ec3c4948ea7d7159c37a03a0003395b4416bac
-}

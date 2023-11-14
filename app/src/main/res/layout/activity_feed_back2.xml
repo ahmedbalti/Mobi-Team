@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> 27ec3c4948ea7d7159c37a03a0003395b4416bac
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     tools:context=".FeedBackActivity">
 
     <LinearLayout
@@ -91,90 +86,3 @@
     </LinearLayout>
 </ScrollView>
 
-=======
-    android:orientation="vertical"
-    tools:context=".FeedBackActivity">
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center_horizontal"
-        android:shadowColor="#3F51B5"
-        android:text="FeedBack"
-        android:textColor="#313F8F"
-        android:textSize="40dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:srcCompat="@drawable/f11" />
-
-    <TextView
-        android:id="@+id/tvFeedback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Very Disatisfied"
-        android:textColor="#3F51B5" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"></LinearLayout>
-
-    <RatingBar
-        android:id="@+id/rbStars"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:layout_gravity="center_horizontal"
-        android:numStars="5"
-        android:progressTint="#F39101" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#88B9E1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Enter your feedback"
-        android:inputType="textMultiLine"
-        android:lines="4"
-        android:padding="5dp" />
-
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:background="#3545A3"
-        android:backgroundTint="#3F51B5"
-        android:text="Send Feedback"
-        android:textColor="#FAF7F7" />
-
-</LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-</LinearLayout>
->>>>>>> 27ec3c4948ea7d7159c37a03a0003395b4416bac
